@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>My Dream Cars</title>
+  </head>
+  <body>
+    <select title="Choose a Dream Car" data-bind="foreach: allCars, value: selectedCar">
+    	<optgroup data-bind="attr: { label: make }, foreach: models">
+    		<option data-bind="text: model, value: $data"></option>
+    	</optgroup>
+    </select>
+    <input type="submit" value="Add it" data-bind="click: addCar" />
+    <ul title="My Dream Cars" data-bind="foreach: dreamCars">
+    	<li>
+    		<span data-bind="text: $parent.formatText($data)"></span>
+    		<a href="#" title="Remove Dream Car" data-bind="click: $parent.removeCar">Remove</a>
+		</li>
+    </ul>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script type="text/javascript" src="js/cars.js"></script>
+  </body>
+</html>
